@@ -30,18 +30,15 @@ Shader "Custom/Billboard Particles"
 
 			HLSLPROGRAM
 
-			#pragma target 5.0
+			#pragma target 4.0
 			#pragma vertex vert
 			#pragma fragment frag
 
 			#include "UnityCG.cginc"
-			#include "./Common.cginc"
+			#include "./ParticleStruct.hlsl"
 
 			uniform sampler2D _MainTex;
 			float _SizeMul;
-
-			StructuredBuffer<Particle> particles;
-			StructuredBuffer<float3> quad;
 
 			struct v2f
 			{
@@ -55,11 +52,8 @@ Shader "Custom/Billboard Particles"
 				v2f o;
 
 				float3 q = quad[id];
-
 				o.pos = mul(UNITY_MATRIX_P, mul(UNITY_MATRIX_V, float4(particles[inst].position, 1.0f)) + float4(q, 0.0f) * _SizeMul * particles[inst].size);
-
 				o.uv = q + 0.5f;
-
 				o.col = particles[inst].alive * particles[inst].color;
 
 				return o;

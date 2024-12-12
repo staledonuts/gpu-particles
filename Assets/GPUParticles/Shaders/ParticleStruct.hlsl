@@ -11,4 +11,7 @@ struct Particle
     float size;
 };
 
+StructuredBuffer<Particle> particles;
+StructuredBuffer<float3> quad;
+
 #endif
