@@ -28,7 +28,7 @@ Shader "Custom/Billboard Particles"
 				"IgnoreProjector" = "True"
 			}
 
-			CGPROGRAM
+			HLSLPROGRAM
 
 			#pragma target 5.0
 			#pragma vertex vert
@@ -70,7 +70,7 @@ Shader "Custom/Billboard Particles"
 				return tex2D(_MainTex, i.uv) * i.col * i.col.a;
 			}
 
-			ENDCG
+			ENDHLSL
 		}
 		}
 }

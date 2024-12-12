@@ -8,6 +8,7 @@
 
 #include "./Common.cginc"
 #include "./SimplexNoise3D.hlsl"
+#include "./FastNoiseLite.hlsl"
 
 float2 time; //x = delta time, y = elapsed time
 float3 seeds;

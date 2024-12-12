@@ -133,7 +133,7 @@ namespace GPUParticles
 
             renderMaterial.SetPass(0);
 
-            Graphics.DrawProcedural(MeshTopology.Quads, 6, dead.count);
+            Graphics.DrawProceduralNow(MeshTopology.Quads, 6, dead.count);
         }
 
         private void OnDestroy()
@@ -368,11 +368,26 @@ namespace GPUParticles
 
         private void ReleaseBuffers()
         {
-            if (particles != null) particles.Release();
-            if (dead != null) dead.Release();
-            if (counter != null) counter.Release();
-            if (quad != null) quad.Release();
-            if (sizeOverLifeBuffer != null) sizeOverLifeBuffer.Release();
+            if (particles != null) 
+            {
+                particles.Release();
+            }
+            if (dead != null) 
+            {
+                dead.Release();
+            }
+            if (counter != null) 
+            {
+                counter.Release();
+            }
+            if (quad != null) 
+            {
+                quad.Release();
+            }
+            if (sizeOverLifeBuffer != null) 
+            {
+                sizeOverLifeBuffer.Release();
+            }
         }
 
         #endregion
